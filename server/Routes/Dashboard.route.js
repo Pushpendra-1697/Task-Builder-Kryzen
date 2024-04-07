@@ -16,10 +16,9 @@ dashboardRouter.get('/', async (req, res) => {
 });
 
 dashboardRouter.post('/post', async (req, res) => {
-    let { name } = req.body;
     const { token } = req.headers;
     userId = jwt.decode(token, process.env.secret_key).id;
-    const paylaod = { name, userId };
+    const paylaod = { ...req.body, userId };
 
     try {
         const bugs = new DashboardModel(paylaod);

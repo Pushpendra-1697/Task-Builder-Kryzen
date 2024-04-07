@@ -6,6 +6,8 @@ const { connection } = require('./Configs/Config');
 const { UserRouter } = require('./Routes/user.route');
 const { dashboardRouter } = require('./Routes/Dashboard.route')
 const PORT = process.env.PORT || 3000;
+const { validate } = require('./Middleware/validate.middleware');
+
 
 app.use(cors());
 app.use(express.json());
@@ -16,10 +18,7 @@ app.get('/', async (req, res) => {
 });
 
 app.use('/users', UserRouter);
-const { validate } = require('./Middleware/validate.middleware');
-// app.use(validate);
 app.use('/dashboard', validate, dashboardRouter);
-
 
 
 app.listen(PORT, async () => {
