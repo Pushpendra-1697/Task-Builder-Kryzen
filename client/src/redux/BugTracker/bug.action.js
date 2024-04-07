@@ -2,7 +2,7 @@ import axios from "axios";
 import { ADD_BUG, BUG_ERROR, BUG_LOADING, BUG_SUCCESS, REMOVE_BUG, UPDATE_BUG } from "./bug.type";
 import { backend_url } from '../../Pages/BackendURL';
 
-export const getBugs = (page) => async (dispatch) => {
+export const getBugs = () => async (dispatch) => {
     dispatch({ type: BUG_LOADING });
     try {
         let res = await axios.get(`${backend_url}/dashboard/`, {
@@ -25,13 +25,16 @@ export const addBug = (message) => async (dispatch) => {
         dispatch({ type: BUG_ERROR, payload: e.message });
     }
 };
+
 // Note: In post and patch requests always gives object after url of json-server or api url; here message and changes both are objects which comes different-2 files;
-export const updateBug = (id, changes) => async (dispatch) => {
+export const updateBug = (id, newStatus, newPriority) => async (dispatch) => {
     dispatch({ type: BUG_LOADING });
+    const payload = {
+        status: newStatus,
+        priority: newPriority
+    };
     try {
-        let res = await axios.patch(`${backend_url}/dashboard/patch/${id}`, {
-            ...changes
-        }, { headers: { token: localStorage.getItem('token') } });
+        let res = await axios.patch(`${backend_url}/dashboard/patch/${id}`, payload, { headers: { token: localStorage.getItem('token') } });
         dispatch({ type: UPDATE_BUG, payload: res.data });
     } catch (e) {
         dispatch({ type: BUG_ERROR, payload: e.message });

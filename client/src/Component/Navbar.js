@@ -38,9 +38,9 @@ const Navbar = () => {
 
     return (
         <>
-            <Box bg={useColorModeValue('goldenrod', 'gray.900')} px={4} mb="5%">
+            <Box bg={useColorModeValue('goldenrod', 'gray.900')} px={4}>
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-                    <Link to="/"> <Image className='icon' w="60px" h={'60px'} objectFit={'cover'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqWn-u2P5K8zX_CDd8QoT05Wul11EkmvF99w&usqp=CAU" alt='logo' /> </Link>
+                    <Link to="/"> <Image rounded={'full'} className='icon' w="60px" h={'60px'} objectFit={'cover'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqWn-u2P5K8zX_CDd8QoT05Wul11EkmvF99w&usqp=CAU" alt='logo' /> </Link>
 
 
                     <Link className='icon' to="/dashboard">Dashboard</Link>

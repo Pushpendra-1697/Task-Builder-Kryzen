@@ -4,7 +4,7 @@ import AllRoutes from './Pages/AllRoutes';
 import Footer from './Component/Footer';
 function App() {
   return (
-    <Box>
+    <Box fontFamily={'Poppins'}>
       <Navbar />
       <AllRoutes />
       <Footer />

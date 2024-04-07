@@ -13,23 +13,40 @@ const Signup = () => {
     const [formData, setFormData] = useState(init);
     const navigate = useNavigate();
     const toast = useToast();
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
 
     const handleChange = (e) => {
         let { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    function isValidEmail(email) {
+        // Regular expression for validating email addresses
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
     const onSubmit = async (e) => {
-        let { email, password } = formData;
         e.preventDefault();
-        if (email == '' || password == '') {
-            alert('Please Fill * required Field')
-            return;
+        let isValid = true;
+        emailError.textContent = '';
+        passwordError.textContent = '';
+
+        // Email validation
+        if (!isValidEmail(formData.email)) {
+            isValid = false;
+            emailError.textContent = 'Invalid email format.';
         };
-        if (email.includes('@') === false && email !== '') {
-            alert('Email not Correct Formate');
+
+        // Password validation
+        if (formData.password.length < 8 || !/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(formData.password)) {
+            isValid = false;
+            passwordError.textContent = 'Password must be at least 8 characters long with special character.';
+        }
+
+        if (!isValid) {
             return;
-        };
+        }
 
         try {
             let res = await fetch(`${backend_url}/users/signup`, {
@@ -47,16 +64,19 @@ const Signup = () => {
                         status: "success",
                         isClosable: true,
                     });
+                    setFormData({
+                        email: '',
+                        password: ''
+                    });
                     navigate('/login');
-                } else if (res.msg === "Registation failed") {
-                    alert(`${res.msg}`);
+                } else {
+                    toast({
+                        title: `${res.msg}`,
+                        status: "error",
+                        isClosable: true,
+                    });
                 }
             }
-
-            setFormData({
-                email: '',
-                password: ''
-            });
         } catch (err) {
             console.log(err);
         }
@@ -64,16 +84,20 @@ const Signup = () => {
 
     const { email, password } = formData;
     return (
-        <Box style={{ textAlign: "center" }}>
+        <Box style={{ textAlign: "center" }} p='20px' display={'flex'} flexDirection={'column'} gap={'10px'}>
             <Heading mb="10px" style={{ textAlign: "center" }}>Register</Heading>
             <form onSubmit={onSubmit} style={{ textAlign: "center" }}>
                 <Box className='input-icons'>
                     <i class="fa fa-envelope icon"></i>
-                    <Input className='input-field' w="300px" type={"email"} placeholder="Email" value={email} name="email" onChange={handleChange} />
+                    <Input required className='input-field' w="300px" type={"email"} placeholder="Email" value={email} name="email" onChange={handleChange} />
+                    <br />
+                    <span id="emailError" className="error"></span>
                 </Box>
                 <Box className='input-icons'>
                     <i class="fa fa-key icon"></i>
                     <Input className='input-field' w="300px" type={"password"} value={password} name="password" placeholder='Password' onChange={handleChange} required />
+                    <br />
+                    <span id="passwordError" className="error"></span>
                 </Box>
                 <Input w="300px" style={{ backgroundColor: "blue", color: "white", border: "none", borderRadius: "10px", padding: "10px" }} type={"submit"} value="Register" />
             </form>

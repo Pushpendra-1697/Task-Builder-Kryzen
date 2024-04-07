@@ -23,15 +23,6 @@ const Signin = () => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        let { email, password } = formData;
-        if (email == '' || password == '') {
-            alert('Please Fill * required Field')
-            return;
-        };
-        if (email.includes('@') === false && email !== '') {
-            alert('Email not Correct Formate');
-            return;
-        };
 
         try {
             let res = await fetch(`${backend_url}/users/login`, {
@@ -44,13 +35,7 @@ const Signin = () => {
             });
             res = await res.json();
             if (res) {
-                if (res.msg === "Invalid Credentials") {
-                    toast({
-                        title: `${res.msg}`,
-                        status: "warning",
-                        isClosable: true,
-                    });
-                } else if (res.msg === "Login Successfully") {
+                if (res.msg === "Login Successfully") {
                     localStorage.setItem('token', res.token);
                     localStorage.setItem('email', formData.email);
                     toast({
@@ -58,14 +43,19 @@ const Signin = () => {
                         status: "success",
                         isClosable: true,
                     });
+                    setFormData({
+                        email: '',
+                        password: ''
+                    });
                     navigate('/dashboard');
+                } else {
+                    toast({
+                        title: `${res.msg}`,
+                        status: "warning",
+                        isClosable: true,
+                    });
                 }
             }
-
-            setFormData({
-                email: '',
-                password: ''
-            });
         } catch (err) {
             console.log(err);
         }
@@ -73,16 +63,16 @@ const Signin = () => {
 
     const { email, password } = formData;
     return (
-        <Box style={{ textAlign: 'center' }}>
+        <Box style={{ textAlign: 'center' }} p='20px' display={'flex'} flexDirection={'column'} gap={'10px'}>
             <Heading mb="10px" style={{ textAlign: "center" }}>Login For Existing Users</Heading>
             <form onSubmit={onSubmit} style={{ textAlign: "center" }}>
                 <Box className='input-icons'>
                     <i class="fa fa-envelope icon"></i>
-                    <Input className='input-field' w="300px" type={"email"} placeholder="Email" value={email} name="email" onChange={handleChange} />
+                    <Input required className='input-field' w="300px" type={"email"} placeholder="Email" value={email} name="email" onChange={handleChange} />
                 </Box>
                 <Box className='input-icons'>
                     <i class="fa fa-key icon"></i>
-                    <Input className='input-field' w="300px" type={"password"} value={password} name="password" placeholder='Password' onChange={handleChange} />
+                    <Input required className='input-field' w="300px" type={"password"} value={password} name="password" placeholder='Password' onChange={handleChange} />
                 </Box>
                 <Input w="300px" style={{ backgroundColor: "blue", color: "white", border: "none", borderRadius: "10px", padding: "10px" }} type={"submit"} value="Login" />
             </form>
