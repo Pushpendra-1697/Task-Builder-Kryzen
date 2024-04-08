@@ -14,34 +14,6 @@ Fullstack
 ## Directory Structure
 Task-Builder-Kryzen/
 ├─ server/
-├─ Configs
-├─ Models
-├─ Middleware
-├─ Routes
-├─ index.js
-├─ client/
-│ ├─ src
-├─ Components
-├─ Pages
-│ ├─ AllRoutes.jsx
-│ ├─ Dashboard.jsx
-│ ├─ Home.jsx
-│ ├─ Signin.jsx
-│ ├─ Signup.jsx
-├─ redux
-│ ├──Bug Tracker
-│ │ ├─ bug.action.js
-│ │ ├─ bug.reducer.js
-│ │ ├─ bug.type.js
-│ ├── store.js
-├─ Styles
-│ ├─Comman.css
-├─ App.js
-├─ index.js
-
-
-Task-Builder-Kryzen/
-├─ server/
      ├─ Configs
      ├─ Models
      ├─ Middleware
@@ -67,11 +39,33 @@ Task-Builder-Kryzen/
       ├─  App.js
       ├─  index.js
 
-my-app/
-├─ backend/
-├─ frontend/
-│  ├─ ...
 
+Task-Builder-Kryzen/
+├─ server/
+│ ├─ Configs
+│ ├─ Models
+│ ├─ Middleware
+│ ├─ Routes
+│ └─ index.js
+└─ client/
+├─ src/
+│ ├─ Components/
+│ ├─ Pages/
+│ │ ├─ AllRoutes.jsx
+│ │ ├─ Dashboard.jsx
+│ │ ├─ Home.jsx
+│ │ ├─ Signin.jsx
+│ │ └─ Signup.jsx
+├─ redux/
+│ ├─ Bug Tracker/
+│ │ ├─ bug.action.js
+│ │ ├─ bug.reducer.js
+│ │ ├─ bug.type.js
+│ └─ store.js
+├─ Styles/
+│ └─ Comman.css
+├─ App.js
+└─ index.js
 
 ## Video Walkthrough
 [Watch Video Walkthrough](https://drive.google.com/file/d/137uhzNo1mEZBcVj-LZCo2kaYq1eRuLuc/view?usp=drive_link)
