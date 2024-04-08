@@ -14,6 +14,34 @@ Fullstack
 ## Directory Structure
 Task-Builder-Kryzen/
 ├─ server/
+├─ Configs
+├─ Models
+├─ Middleware
+├─ Routes
+├─ index.js
+├─ client/
+│ ├─ src
+├─ Components
+├─ Pages
+│ ├─ AllRoutes.jsx
+│ ├─ Dashboard.jsx
+│ ├─ Home.jsx
+│ ├─ Signin.jsx
+│ ├─ Signup.jsx
+├─ redux
+│ ├──Bug Tracker
+│ │ ├─ bug.action.js
+│ │ ├─ bug.reducer.js
+│ │ ├─ bug.type.js
+│ ├── store.js
+├─ Styles
+│ ├─Comman.css
+├─ App.js
+├─ index.js
+
+
+Task-Builder-Kryzen/
+├─ server/
      ├─ Configs
      ├─ Models
      ├─ Middleware
@@ -129,8 +157,8 @@ Clone the above Repository from Github. Then do the following steps:
   - DELETE /dashboard/delete: Delete the task by task ID
 
 
-# Some Project Screenshots :
-# A) For Computer Screen:
+## Some Project Screenshots :
+### A) For Computer Screen:
 ![Screenshot (606)](https://github.com/Pushpendra-1697/Task-Builder-Kryzen/assets/104748364/ff85d3fd-a703-4fa0-97d8-471a6ab04c40)
 
 ![Screenshot (607)](https://github.com/Pushpendra-1697/Task-Builder-Kryzen/assets/104748364/57e85a20-f54d-40a2-a8aa-45d24296d8de)
@@ -141,5 +169,5 @@ Clone the above Repository from Github. Then do the following steps:
 
 ![Screenshot (610)](https://github.com/Pushpendra-1697/Task-Builder-Kryzen/assets/104748364/5948c0d0-0d4a-4a85-b10e-9c86f0cfef69)
 
-# B) For Mobile Screen :
+### B) For Mobile Screen :
 ![Screenshot (611)](https://github.com/Pushpendra-1697/Task-Builder-Kryzen/assets/104748364/2b9ae15a-e00a-4d88-9859-a024a5767a27)
