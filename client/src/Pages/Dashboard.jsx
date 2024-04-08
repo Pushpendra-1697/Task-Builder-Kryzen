@@ -19,7 +19,7 @@ const Dashboard = () => {
   const toast = useToast();
 
   useEffect(() => {
-    dispatch(getBugs());
+    localStorage.getItem('token') && dispatch(getBugs());
   }, []);
 
   const sortByPriorityLTH = () => {
