@@ -2,8 +2,6 @@ const { Router } = require('express');
 const { DashboardModel } = require('../Models/dashboard.model');
 const dashboardRouter = Router();
 const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
-
 
 dashboardRouter.get('/', async (req, res) => {
     const { token } = req.headers;
