@@ -67,6 +67,11 @@ Task-Builder-Kryzen/
       ├─  App.js
       ├─  index.js
 
+my-app/
+├─ backend/
+├─ frontend/
+│  ├─ ...
+
 
 ## Video Walkthrough
 [Watch Video Walkthrough](https://drive.google.com/file/d/137uhzNo1mEZBcVj-LZCo2kaYq1eRuLuc/view?usp=drive_link)
