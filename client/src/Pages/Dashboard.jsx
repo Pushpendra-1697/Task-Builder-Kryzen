@@ -7,6 +7,7 @@ import { BiLoaderCircle } from "react-icons/bi";
 import TaskList from '../Component/TaskList';
 import TaskForm from '../Component/TaskForm';
 import { RxCrossCircled } from "react-icons/rx";
+import { backend_url } from './BackendURL';
 
 const Dashboard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -75,6 +76,23 @@ const Dashboard = () => {
   };
   const filteredTasks = handleFilter();
 
+  const downloadPdf = async () => {
+    try {
+      const response = await fetch(`${backend_url}/download/pdf`);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'tasks.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   if (!localStorage.getItem('token')) {
     return (<Navigate to={'/login'} />)
   };
@@ -99,6 +117,7 @@ const Dashboard = () => {
 
       <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
         <Heading size={'lg'}>Task Board</Heading>
+        <Button onClick={downloadPdf}>Download Tasks Data</Button>
         <Avatar
           size={'sm'}
         />

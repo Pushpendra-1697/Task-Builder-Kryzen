@@ -1,1 +1,2 @@
-export const backend_url = "https://kryzen-server.onrender.com";
+export const backend_url = 'http://localhost:8000';
+//  "https://kryzen-server.onrender.com";
