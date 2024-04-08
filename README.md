@@ -6,10 +6,10 @@ This project combines the powerful drag and drop functionality provided by the R
 ## Project Type
 Fullstack
 
-## Deplolyed App
-Frontend: https://kryzen-mocha.vercel.app
-Backend: https://kryzen-server.onrender.com
-Database: mongodb+srv://pushpendra:push@cluster0.zr7oie4.mongodb.net/kryzen?retryWrites=true&w=majority&appName=Cluster0
+## Deployed App
+- Frontend: [Kryzen Frontend](https://kryzen-mocha.vercel.app)
+- Backend: [Kryzen Backend](https://kryzen-server.onrender.com)
+- Database: [MongoDB Atlas](mongodb+srv://pushpendra:push@cluster0.zr7oie4.mongodb.net/kryzen?retryWrites=true&w=majority&appName=Cluster0)
 
 ## Directory Structure
 Task-Builder-Kryzen/
@@ -40,8 +40,9 @@ Task-Builder-Kryzen/
       ├─  index.js
 
 
-## Video Walkthrough of the project
-https://drive.google.com/file/d/137uhzNo1mEZBcVj-LZCo2kaYq1eRuLuc/view?usp=drive_link
+## Video Walkthrough
+[Watch Video Walkthrough](https://drive.google.com/file/d/137uhzNo1mEZBcVj-LZCo2kaYq1eRuLuc/view?usp=drive_link)
+
 
 ## Features
 - Form for adding task name, status, and date.
@@ -86,34 +87,46 @@ Clone the above Repository from Github. Then do the following steps:
 - Password: Push1697@
 
 ## Technology Stack
-### A) Frontend :
-React (JSX Syntax), Redux, Chakra-ui Library for Styling & Modal, axios for handling asynchrous request, react-router-dom for routing or Navigate from one page to another, Standard react components, React-hooks, chakra-icons & react-icons and Drag & Drop by react-dnd library.
-### B) Backend :
-Node.js, Express.js, mongodb (NoSQL), mongoose for connect database to server, cors for handling the cors error, relationships between collections, jsonwebtoken, node-fetch, BSON and Bsondump.
+### Frontend:
+- React (JSX Syntax)
+- Redux
+- Chakra-ui Library for Styling & Modal
+- Axios for handling asynchronous requests
+- React Router DOM for routing or navigation
+- Standard React components
+- React Hooks
+- Chakra-icons & React-icons
+- Drag & Drop by React DnD library
+
+### Backend:
+- Node.js
+- Express.js
+- MongoDB (NoSQL)
+- Mongoose for connecting database to server
+- CORS for handling the CORS error
+- JSON Web Token
+- Node-fetch
+- BSON and Bsondump
 
 ## PORT Used
-- For Frontend ___>>>> 3000
-- For Backend ___>>>> 8000
+- For Frontend: 3000
+- For Backend: 8000
 
-## Some HTTP (Hyper Text Transfer Protocol) Status Code Which I used :
-404 ---> Not Found/failure
-
-201 ---> Created/post
-
-200 --->  OK/Success/get/put
+## HTTP Status Codes Used
+- 404: Not Found/failure
+- 201: Created/post
+- 200: OK/Success/get/put
 
 ## API Endpoints
-In case of Backend Applications provide a list of your API endpoints, methods, brief descriptions, and examples of request/response.
-GET / - Welcome in Task Manager App!!!😊
-GET /download/pdf - Download the collected data in PDF format from the database (status-wise)
-POST /users/signup - For Registration a new user
-POST /users/login - For Logged in an user
-
-- Below are the restricted endpoints
-GET /dashboard/ - For retrieving the tasks data for dashboard
-POST /dashboard/post - For storing a new task in DB
-PATCH /dashboard/patch - For updating the task details (one or many) by task id
-DELETE /dashboard/delete - For deleting the task by task id
+- GET /: Welcome in Task Manager App!!!
+- GET /download/pdf: Download the collected data in PDF format from the database (status-wise)
+- POST /users/signup: Register a new user
+- POST /users/login: Log in a user
+- Restricted endpoints:
+  - GET /dashboard/: Retrieve the tasks data for dashboard
+  - POST /dashboard/post: Store a new task in the database
+  - PATCH /dashboard/patch: Update the task details (one or many) by task ID
+  - DELETE /dashboard/delete: Delete the task by task ID
 
 
 # Some Project Screenshots :
