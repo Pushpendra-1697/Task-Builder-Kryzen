@@ -74,7 +74,7 @@ const Signin = () => {
                     <i class="fa fa-key icon"></i>
                     <Input required className='input-field' w="300px" type={"password"} value={password} name="password" placeholder='Password' onChange={handleChange} />
                 </Box>
-                <Input w="300px" style={{ backgroundColor: "blue", color: "white", border: "none", borderRadius: "10px", padding: "10px" }} type={"submit"} value="Login" />
+                <Input cursor={'pointer'} w="300px" style={{ backgroundColor: "blue", color: "white", border: "none", borderRadius: "10px", padding: "10px" }} type={"submit"} value="Login" />
             </form>
             <p style={{ marginTop: "14px" }}>or continue with these social profile</p>
 

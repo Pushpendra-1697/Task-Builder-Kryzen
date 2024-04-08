@@ -36,6 +36,10 @@ PORT ---> 3000 || 8000
 
 200 --->  OK/Success/get/put
 
+## Login Credentials
+Email Address: test@gmail.com
+Password: Push1697@
+
 # Some Project Screenshots :
 # A) For Computer Screen:
 

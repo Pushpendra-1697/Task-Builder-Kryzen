@@ -99,7 +99,7 @@ const Signup = () => {
                     <br />
                     <span id="passwordError" className="error"></span>
                 </Box>
-                <Input w="300px" style={{ backgroundColor: "blue", color: "white", border: "none", borderRadius: "10px", padding: "10px" }} type={"submit"} value="Register" />
+                <Input cursor={'pointer'} w="300px" style={{ backgroundColor: "blue", color: "white", border: "none", borderRadius: "10px", padding: "10px" }} type={"submit"} value="Register" />
             </form>
             <Text mt="30px">or continue with these social profile</Text>
             <Box m="8px 0" display={"flex"} justifyContent="center" alignItems={"center"} gap="5px">
