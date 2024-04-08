@@ -2,10 +2,10 @@ import axios from "axios";
 import { ADD_BUG, BUG_ERROR, BUG_LOADING, BUG_SUCCESS, REMOVE_BUG, UPDATE_BUG } from "./bug.type";
 import { backend_url } from '../../Pages/BackendURL';
 
-export const getBugs = () => async (dispatch) => {
+export const getBugs = (sort, order) => async (dispatch) => {
     dispatch({ type: BUG_LOADING });
     try {
-        let res = await axios.get(`${backend_url}/dashboard/`, {
+        let res = await axios.get(`${backend_url}/dashboard/?sort=${sort}&order=${order}`, {
             headers: {
                 token: localStorage.getItem('token')
             }

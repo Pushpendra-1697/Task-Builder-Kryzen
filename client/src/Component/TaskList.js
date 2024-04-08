@@ -1,4 +1,4 @@
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay, useDisclosure, Text, Heading, Box, Button } from '@chakra-ui/react';
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalOverlay, useDisclosure, Text, Heading, Box, Button, List } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import DeleteTask from './DeleteTask';
@@ -8,7 +8,6 @@ function TaskList({ tasks, onDeleteTask, onUpdateTask }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const statusColumns = ['Pending', 'In Progress', 'Completed', 'Deployed', 'Deferred'];
     const [selectedTask, setSelectedTask] = useState(null);
-
 
     function formatDate(timestamp) {
         const date = new Date(timestamp);
@@ -21,10 +20,12 @@ function TaskList({ tasks, onDeleteTask, onUpdateTask }) {
         const formattedDate = `${day} ${monthNames[monthIndex]} ${year}`;
         return formattedDate;
     };
+
+    console.log(tasks);
     return (
         <Box display={'grid'} gridTemplateColumns={'repeat(5,1fr)'} gap={'30px'}>
             {tasks.length > 0 && statusColumns.map((status) =>
-                <Box key={status} display={'flex'} flexDirection={'column'} borderRadius={'7px'} boxShadow={'lg'} minW={'250px'}>
+                <List minH={'70vh'} overflow={'scroll'} key={status} display={'flex'} flexDirection={'column'} borderRadius={'7px'} boxShadow={'lg'} minW={'250px'}>
                     <Heading py={'10px'} color={'white'} background={status === "Pending" ? 'beige' : status === "In Progress" ? 'orange' : status === 'Completed' ? 'green' : status === 'Deployed' ? 'blue' : 'bisque'} fontSize={'23px'} borderTopRadius={'7px'} textAlign={'center'}>{status}</Heading>
                     <Box p={'10px'} display={'flex'} flexDirection={'column'} gap={'10px'} bg={'white'}>
                         {tasks.filter((task) => task.status === status).map((task) =>
@@ -61,7 +62,7 @@ function TaskList({ tasks, onDeleteTask, onUpdateTask }) {
                             </Box>
                         )}
                     </Box>
-                </Box>
+                </List>
             )}
         </Box>
     );
